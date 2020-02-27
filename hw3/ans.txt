@@ -1,0 +1,78 @@
+1)
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              4
+On-line CPU(s) list: 0-3
+Thread(s) per core:  1
+Core(s) per socket:  4
+Socket(s):           1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               158
+Model name:          Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz
+Stepping:            9
+CPU MHz:             2496.000
+CPU max MHz:         2496.0000
+BogoMIPS:            4992.00
+Virtualization:      VT-x
+Hypervisor vendor:   Windows Subsystem for Linux
+Virtualization type: container
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave osxsave avx f16c rdrand lahf_lm abm 3dnowprefetch fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt ibrs ibpb stibp ssbd
+
+
+MemTotal:        8271076 kB
+MemFree:         1548380 kB
+Buffers:           34032 kB
+Cached:           188576 kB
+SwapCached:            0 kB
+Active:           167556 kB
+Inactive:         157876 kB
+Active(anon):     103104 kB
+Inactive(anon):    17440 kB
+Active(file):      64452 kB
+Inactive(file):   140436 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:      25165824 kB
+SwapFree:       24378668 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:        102824 kB
+Mapped:            71404 kB
+Shmem:             17720 kB
+Slab:              13868 kB
+SReclaimable:       6744 kB
+SUnreclaim:         7124 kB
+KernelStack:        2848 kB
+PageTables:         2524 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      515524 kB
+Committed_AS:    3450064 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       21296 kB
+VmallocChunk:      66044 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:      2048 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       12280 kB
+DirectMap4M:      897024 kB
+
+2)
+mm 10 20 2 4: seq = 137 us, par = 17889 us
+mm 50 70 2 4: seq = 3718 us, par = 72874 us
+mm 100 200 2 4: seq = 49624 us, par = 147092 us
+mm 300 500 2 4: seq = 1112603 us, par = 593686 us
+mm 500 700 2 4: seq = 4539866 us, par = 1604279 us
+mm 900 1000 2 4: seq = 31309619 us, par = 10886145 us
+mm 1023 1023 2 4: seq = 34011538 us, par = 9573417 us
+
+3) In the first 3 queries sequential implementation was quicker that parallel, and next 4 results were opposite. I assume that at 300x500 matrices main thread used maximum of its memory and cpu power, while 2 another matrices were more free and faster
+
+4) No synchronization mechanisms, because there are no critical sections that threads are changing simultaneously

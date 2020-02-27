@@ -1,0 +1,12 @@
+Shell-Homework.docx
+Shell-Lab.docx
+lines.txt
+newfile.txt
+smsh
+smsh.c
+smsh2
+smshtest.c
+t
+test.c
+test.txt
+~$ell-Homework.docx
